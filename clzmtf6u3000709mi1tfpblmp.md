@@ -18,3 +18,5 @@ So in REPL, you type something and press enter, it goes to python interpreter an
 `notebook server` and `kernel` communicates via `ZeroMQ` protocol. `notebook server` and browser in which you are running the frontend communicates via `websocket` protocol.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1723227154482/c9d0e90d-9b51-4368-b6fc-5817ba717938.png align="center")
+
+More details about how messaging specifications can be found here [https://jupyter-client.readthedocs.io/en/latest/messaging.html](https://jupyter-client.readthedocs.io/en/latest/messaging.html)
