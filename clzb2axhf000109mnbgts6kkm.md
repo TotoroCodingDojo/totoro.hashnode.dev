@@ -1,26 +1,20 @@
 ---
-title: "XML and JSON with Groovy"
+title: "Practical XML Manipulation with Groovy: Common Examples"
 datePublished: Thu Aug 01 2024 09:17:04 GMT+0000 (Coordinated Universal Time)
 cuid: clzb2axhf000109mnbgts6kkm
-slug: xml-and-json-with-groovy
+slug: practical-xml-manipulation-with-groovy-common-examples
 tags: xml, groovy
 
 ---
 
-## XML
+## Introduction
 
-* to parse xml in groovy there are two options available
+To parse xml in groovy there are two options available
+
+* `XmlParser` which returns a `Node` objects when parsing XML
     
-    * `XmlParser`
-        
-        * `XmlParser` returns `Node` objects when parsing XML
-            
-    * `XmlSlurper`
-        
-        * `XmlSlurper` evaluates the structure lazily. So if you update the xml you’ll have to evaluate the whole tree again.
-            
-        * `XmlSlurper` returns `GPathResult` instances when parsing XML
-            
+* `XmlSlurper` which returns `GPathResult` instances when parsing XML. It evaluates the structure lazily. So if you update the xml you’ll have to evaluate the whole tree again.
+    
 
 When to use which one:
 
@@ -31,10 +25,14 @@ When to use which one:
 
 Read more here - [https://groovy-lang.org/processing-xml.html](https://groovy-lang.org/processing-xml.html)
 
-### Examples
+## Examples
+
+### Copying a complete XML inside another XML node
 
 * You have a xml and you want a **part** (it may consist nested nodes) **of that xml** inside some other xml structure you created.
     
+
+You can get that part of xml using `XmlParser` as a `GPath` and then use the code given below.
 
 ```java
 import groovy.xml.MarkupBuilder
@@ -74,6 +72,8 @@ xmlBuilder.'car-records'('id': '1') {
 println(writer.toString())
 ```
 
+In case there are you don't want to insert one but child elements of a particular element you can utilize this code snippet:
+
 ```java
 import groovy.xml.MarkupBuilder
 import groovy.xml.XmlUtil
@@ -109,4 +109,4 @@ xmlBuilder.'car-records'('id': '1') {
 println(writer.toString())
 ```
 
-## JSON
+...more examples to come
