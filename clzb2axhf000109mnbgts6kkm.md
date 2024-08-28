@@ -32,7 +32,9 @@ Read more here - [https://groovy-lang.org/processing-xml.html](https://groovy-la
 * You have a xml and you want a **part** (it may consist nested nodes) **of that xml** inside some other xml structure you created.
     
 
-You can get that part of xml using `XmlParser` as a `GPath` and then use the code given below.
+You can get that part of xml using `XmlParser` as a `GPath` and then use the code given below. The main concept is to use `mkp.yieldUnescaped` where `mkp` is `MarkupBuilderHelper` instance for the `xmlBuilder` object.
+
+Here is link for more details about `MarkupBuilderHelper` - [https://groovy-lang.org/processing-xml.html#\_markupbuilderhelper](https://groovy-lang.org/processing-xml.html#_markupbuilderhelper)
 
 ```java
 import groovy.xml.MarkupBuilder
@@ -180,6 +182,8 @@ def uniqueCars = cars.unique { it.id.text() }
 def uniqueSortedCars = cars.unique { it.id.text() }.sort { it.id.text() }
 
 // Add those modified items to the xml
+// note that I'm getting the first root element at 0, if there were 
+// multiple roots then you have to use multiple each
 sortedCars.each { vehicles.cars[0].append(it) }
 
 // Convert the modified XML back to string
@@ -188,4 +192,30 @@ def outputXml = XmlUtil.serialize(vehicles)
 println(outputXml)
 ```
 
-...more examples to come
+### Perform some operation on items with text values
+
+Suppose you want to perform some operation like capitalization, removing leading zeros, changing date format, etc. on items which have text values.
+
+Here is outline on how to do that:
+
+* first query for all the elements for which you want to do the transformation
+    
+* use some closure or function to perform the transformation
+    
+
+```java
+def xml = "" // use same as the example above
+def parser = new XmlParser()
+def vehicles = parser.parseText(xml)
+
+// Find all the elements which you want for transformation
+vehicles.'**'.findAll { it.name() == 'name' }.each { element ->
+    element.value = element.text().toUpperCase()
+}
+
+// Convert the modified XML back to a string
+def outputXml = XmlUtil.serialize(vehicles)
+println outputXml
+```
+
+...more examples to come.
