@@ -109,4 +109,83 @@ xmlBuilder.'car-records'('id': '1') {
 println(writer.toString())
 ```
 
+### Perform some operation (sort, unique, custom, ...) on some items in XML based on some criteria
+
+Suppose you want perform some operation on some items inside XML, like sorting or keeping only unique items, here is a common outline on how you can do that.
+
+* First query for all the items, use `GPath` to access them.
+    
+* After extracting all the items remove them from the original XML.
+    
+* Perform manipulation on them, you can use criteria in form of closures. Also if you want to multiple manipulations use chaining of functions.
+    
+* Add the manipulated items back to the XML.
+    
+* Use `XmlUtil` to serialize the output XML.
+    
+
+```java
+import groovy.xml.XmlUtil
+
+xml = """<vehicles>
+    <cars>
+        <car>
+            <id>3</id>
+            <name>Toyota Camry</name>
+            <color>Silver</color>
+        </car>
+        <car>
+            <id>1</id>
+            <name>BMW 3 Series</name>
+            <color>Navy Blue</color>
+        </car>
+        <car>
+            <id>2</id>
+            <name>Audi A4</name>
+            <color>Black</color>
+        </car>
+        <car>
+            <id>5</id>
+            <name>Honda Accord</name>
+            <color>White</color>
+        </car>
+        <car>
+            <id>4</id>
+            <name>Mercedes-Benz C-Class</name>
+            <color>Dark Grey</color>
+        </car>
+    </cars>
+</vehicles>
+"""
+
+def parser = new XmlParser(false, false)
+def vehicles = parser.parseText(xml)
+
+// Extract the items we need segments
+def cars = vehicles.cars.car
+
+// remove those items from xml
+cars.each { item ->
+    def parent = item.parent()
+    parent.remove(item)
+}
+
+// Perform the operation you want on those items, like sorting in this case
+// the criteria will be passed as a closure
+def sortedCars = cars.sort { it.id.text() }
+
+// or you can get all unique items
+def uniqueCars = cars.unique { it.id.text() }
+// or both unique soorted cars
+def uniqueSortedCars = cars.unique { it.id.text() }.sort { it.id.text() }
+
+// Add those modified items to the xml
+sortedCars.each { vehicles.cars[0].append(it) }
+
+// Convert the modified XML back to string
+def outputXml = XmlUtil.serialize(vehicles)
+
+println(outputXml)
+```
+
 ...more examples to come
