@@ -3,6 +3,8 @@ title: "How to Configure Fonts in Linux"
 datePublished: Wed Oct 30 2024 19:00:50 GMT+0000 (Coordinated Universal Time)
 cuid: cm2w8sbmv000009lbcv6h7l6a
 slug: how-to-configure-fonts-in-linux
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1736406706372/a0b21d26-e1f9-4bcc-8a96-502fefda705a.png
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1736406734871/b0629dcc-9a1a-446a-8c81-11a31255f797.png
 tags: fonts, linux
 
 ---
