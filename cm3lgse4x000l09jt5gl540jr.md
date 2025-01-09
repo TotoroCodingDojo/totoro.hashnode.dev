@@ -3,6 +3,7 @@ title: "Fix "Adding File Not Supported" Error in WhatsApp Web"
 datePublished: Sun Nov 17 2024 10:39:05 GMT+0000 (Coordinated Universal Time)
 cuid: cm3lgse4x000l09jt5gl540jr
 slug: fix-adding-file-not-supported-error-in-whatsapp-web
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1736405637127/335db833-435a-4f54-a6b3-bddfc516e01c.png
 tags: ffmpeg
 
 ---
