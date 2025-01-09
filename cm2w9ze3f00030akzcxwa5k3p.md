@@ -3,6 +3,8 @@ title: "What Are Bookmarklets and How Can You Use Them?"
 datePublished: Wed Oct 30 2024 19:34:20 GMT+0000 (Coordinated Universal Time)
 cuid: cm2w9ze3f00030akzcxwa5k3p
 slug: what-are-bookmarklets-and-how-can-you-use-them
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1736407293581/32ca3906-1310-4970-8724-b16da214a8b7.png
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1736407312263/dea35dc3-da12-4426-84ab-47dfed2f76a2.png
 tags: browsers, bookmarklet
 
 ---
