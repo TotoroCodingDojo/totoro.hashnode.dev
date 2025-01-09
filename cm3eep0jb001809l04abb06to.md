@@ -3,6 +3,8 @@ title: "Exploring Different File Types: A Simple Overview"
 datePublished: Tue Nov 12 2024 12:06:05 GMT+0000 (Coordinated Universal Time)
 cuid: cm3eep0jb001809l04abb06to
 slug: exploring-different-file-types-a-simple-overview
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1736406851270/71756974-98df-4e18-a3c8-85d9d295b60a.png
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1736406872624/80b55423-2b45-46a6-9d56-716443a3bd3c.png
 tags: images, audio, videocodecs, file-types
 
 ---
